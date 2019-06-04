@@ -31,6 +31,7 @@ def extract():
             i = h.split(',').index('機種')
 
             with codecs.open(path+kisy+'_'+file, 'w', 'utf8') as fw:
+                fw.write(h)
                 for line in f:
                     if line.split(',')[i] == kisy:
                         fw.write(line)
