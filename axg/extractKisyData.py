@@ -10,7 +10,7 @@ def extract():
     root = os.listdir(inpath)
     print('num_file='+str(len(root)))
 
-    path = inpath+kisy+'/'
+    path = inpath+kisy+'/temp/'
 
     if not os.path.isdir(path):
         print(path)
