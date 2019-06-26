@@ -1,6 +1,8 @@
 import os
 import shutil
 import codecs
+import re
+
 
 #ファイルが格納される親フォルダ
 path_fd = 'C:/UiPath/LoadMap/output/'
@@ -83,6 +85,9 @@ def layout():
         lines = f.readlines()
 
     print('FILE,EXPLAIN,CODE,TYPE,LENGTH')
+
+    template('LOADMAP_DATE')
+    print('LOADMAP_DATE,DATE,DATE,CHAR,99')
 
     template('LOADMAP_SMR')
     print('LOADMAP_SMR,行名,CN,CHAR,99')
@@ -175,6 +180,10 @@ def splitData():
             print(id)
             lines = f.readlines()
 
+        #GET DATE
+        #print(lines[1].split('日'))
+        rec('LOADMAP_DATE', id, lines[1].split('(')[0].replace('creation date : ', '').replace('年','').replace('月',''))
+
         #SMR
         #print(lines[7])
         rec('LOADMAP_SMR', id, lines[7])
@@ -234,7 +243,6 @@ def splitData():
 if __name__ == '__main__':
     #マスターのバイナリをCSV二変換
     #trans()
-
-    #splitData()
+    splitData()
     layout()
 

@@ -29,10 +29,11 @@ file = rpath+'KOWAデータ/layout/filename_kowa_all.csv'
 header = rpath+'KOWAデータ/layout/Layout_kowa_all.csv'
 '''
 #EQP
+'''
 fd = rpath+'EQPデータ/data/utf8/'
 file = rpath+'EQPデータ/layout/filename_eqp_all.csv'
 header = rpath+'EQPデータ/layout/Layout_eqp_all.csv'
-
+'''
 '''
 #KOMTRAX
 fd = rpath+'KOMTRAXデータ/data/utf8/'
@@ -40,11 +41,10 @@ file = rpath+'KOMTRAXデータ/layout/filename_komtrax_all.csv'
 header = rpath+'KOMTRAXデータ/layout/Layout_komtrax_all.csv'
 '''
 #LOADMAP
-'''
+
 fd = rpath+'LOADMAPデータ/data/utf8/'
 file = rpath+'LOADMAPデータ/layout/filename_loadmap_all.csv'
 header = rpath+'LOADMAPデータ/layout/Layout_loadmap_all.csv'
-'''
 
 destaxg = 'G:/axg/csv/'
 root = os.listdir(fd)
@@ -76,7 +76,8 @@ def KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP():
     for r in root:
         #ファイルの取得
         files = os.listdir(fd+r+'/')
-        files.remove('error')
+        if 'error' in files:
+            files.remove('error')
 
         fn = files[0].replace('.csv', '')
 

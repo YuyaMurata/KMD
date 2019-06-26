@@ -20,6 +20,10 @@ def extract():
         if '.csv' not in file:
             continue
 
+        #処理ファイルの限定
+        if 'LOADMAP' not in file:
+            continue
+
         print(file)
         with codecs.open(inpath+file, 'r', 'utf8') as f:
             h = next(f)
