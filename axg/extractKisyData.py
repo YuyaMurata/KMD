@@ -21,7 +21,7 @@ def extract():
             continue
 
         #処理ファイルの限定
-        if 'LOADMAP' not in file:
+        if 'EQP販売仕様' not in file:
             continue
 
         print(file)
