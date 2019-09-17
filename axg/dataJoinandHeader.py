@@ -58,7 +58,7 @@ for (k, v) in filedict.items():
     print(k+':'+v)
 del filedict['FILE']
 
-def KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP():
+def KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP_LOADMAP():
     # ファイル名 -> ヘッダ
     headdict = {}
     with open(header, 'r') as head:
@@ -159,5 +159,5 @@ def KOMTRAX():
             print(f+',-,'+str(fcnt)+','+str(cnt))
 
 if __name__ == '__main__':
-    KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP()
+    KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP_LOADMAP()
     #KOMTRAX()

@@ -5,6 +5,7 @@ import shutil
 
 inpath = 'G:/axg/csv/'
 kisy = 'PC200'
+typ = ['8', '8N1', '10']
 
 def extract():
     root = os.listdir(inpath)
@@ -21,7 +22,7 @@ def extract():
             continue
 
         #処理ファイルの限定
-        if 'EQP販売仕様' not in file:
+        if 'LOADMAP' not in file:
             continue
 
         print(file)
@@ -33,11 +34,15 @@ def extract():
                 continue
 
             i = h.split(',').index('機種')
+            if '型式' in h:
+                j = h.split(',').index('型式')
+            else :
+                j = h.split(',').index('型')
 
             with codecs.open(path+kisy+'_'+file, 'w', 'utf8') as fw:
                 fw.write(h)
                 for line in f:
-                    if line.split(',')[i] == kisy:
+                    if line.split(',')[i] == kisy and line.split(',')[j] in typ:
                         fw.write(line)
 
 

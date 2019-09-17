@@ -25,18 +25,18 @@ def trans():
         print(file)
 
         try:
-            ''' Count File
+            ''' Count File '''
             print('Trans_CNT>')
             os.system(shell_cnt.replace('/', '\\')+' '+path_fd.replace('/', '\\')+file)
-            #os.rename(path_fd+file+"_output_count.csv", path_fd+file.replace(".txt", "")+"_output_count.csv")
             outfile1 = path_fd+file+"_output_count.csv"
-            shutil.move(outfile1, outpath_fd)
-            '''
+            shutil.move(outfile1, transpath_fd)
+
+            ''' Hour File
             print('Trans_HOUR>')
             os.system(shell_hour.replace('/', '\\')+' '+path_fd.replace('/', '\\')+file)
-            #os.rename(path_fd + file + "_output_hour.csv", path_fd + file.replace(".txt", "") + "_output_hour.csv")
             outfile2 = path_fd + file + "_output_hour.csv"
             shutil.move(outfile2, transpath_fd)
+            '''
         except:
             print('no create!')
 
@@ -86,12 +86,11 @@ def layout():
 
     print('FILE,EXPLAIN,CODE,TYPE,LENGTH')
 
-    template('LOADMAP_DATE')
-    print('LOADMAP_DATE,DATE,DATE,CHAR,99')
-
-    template('LOADMAP_SMR')
-    print('LOADMAP_SMR,行名,CN,CHAR,99')
-    print('LOADMAP_SMR,SMR,SMR,CHAR,99')
+    template('LOADMAP_DATE_SMR')
+    print('LOADMAP_DATE_SMR,DATE,DATE,CHAR,99')
+    #template('LOADMAP_SMR')
+    print('LOADMAP_DATE_SMR,行名,CN,CHAR,99')
+    print('LOADMAP_DATE_SMR,SMR,SMR,CHAR,99')
 
     s = lines[11].replace(' ', '').replace(',\n', '\n')[:-1]
     template('LOADMAP_実エンジン回転VSエンジントルク')
@@ -182,11 +181,11 @@ def splitData():
 
         #GET DATE
         #print(lines[1].split('日'))
-        rec('LOADMAP_DATE', id, lines[1].split('(')[0].replace('creation date : ', '').replace('年','').replace('月',''))
+        rec('LOADMAP_DATE_SMR', id, lines[1].split('(')[0].replace('creation date : ', '').replace('年','').replace('月','').replace('日','')+','+lines[7])
 
         #SMR
         #print(lines[7])
-        rec('LOADMAP_SMR', id, lines[7])
+        #rec('LOADMAP_SMR', id, lines[7])
 
         #実エンジン回転VSエンジントルク
         #print(lines[10])

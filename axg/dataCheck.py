@@ -2,10 +2,12 @@ import os
 import codecs
 import linecache
 import shutil
+import codecs
 
-path = "G:/取得データ/データ/KOMTRAXデータ/data/utf8/PC200/CW_SERVICE_METER.csv"
+#path = "G:/axg/csv/受注.csv"
+path = "G:/axg/error/komatsuDB_PC200/error_受注作業明細.csv"
 
-with open(path, 'r') as f:
+with codecs.open(path, 'r', 'sjis') as f:
     for line in f:
-        if 'PC200,8N1,,314601,' in line:
+        if 'FN,5A1560253,' in line:
             print(line)
