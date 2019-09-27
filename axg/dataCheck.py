@@ -5,9 +5,9 @@ import shutil
 import codecs
 
 #path = "G:/axg/csv/受注.csv"
-path = "G:/axg/error/komatsuDB_PC200/error_受注作業明細.csv"
+path = "G:/axg/csv/PC200/PC200_KOMTRAX_CW_ERROR.csv"
 
-with codecs.open(path, 'r', 'sjis') as f:
+with codecs.open(path, 'r', 'utf8') as f:
     for line in f:
-        if 'FN,5A1560253,' in line:
+        if 'PC200,8N1, ,311209' in line:
             print(line)
