@@ -22,7 +22,7 @@ def extract():
             continue
 
         #処理ファイルの限定
-        if 'LOADMAP_' not in file:
+        if 'SMALL_' not in file:
             continue
 
         print(file)

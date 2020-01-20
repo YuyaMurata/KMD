@@ -6,8 +6,8 @@ import re
 
 #ファイルが格納される親フォルダ
 path_fd = 'C:/UiPath/LoadMap/output/'
-transpath_fd = 'G:/取得データ/データ/LOADMAPデータ/data/master/csv/'
-csvpath_fd = 'G:/取得データ/データ/LOADMAPデータ/data/csv/'
+transpath_fd = 'G:/取得データ/データ/LOADMAPデータ/data_hour/master/csv/'
+csvpath_fd = 'G:/取得データ/データ/LOADMAPデータ/data_hour/csv/'
 
 #ファイルを変換するシェル
 shell_cnt = 'parser/py_c87_count.bat'
@@ -181,7 +181,7 @@ def splitData():
 
         #GET DATE
         #print(lines[1].split('日'))
-        rec('LOADMAP_DATE_SMR', id, lines[1].split('(')[0].replace('creation date : ', '').replace('年','').replace('月','').replace('日','')+','+lines[7])
+        rec('LOADMAP_DATE_SMR', id, file.split('_')[1][0:8]+','+lines[7])
 
         #SMR
         #print(lines[7])
