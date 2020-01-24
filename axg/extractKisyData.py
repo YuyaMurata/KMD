@@ -22,7 +22,7 @@ def extract():
             continue
 
         #処理ファイルの限定
-        if 'SMALL_' not in file:
+        if 'KOMTRAX_' not in file:
             continue
 
         print(file)
@@ -42,7 +42,7 @@ def extract():
             with codecs.open(path+kisy+'_'+file, 'w', 'utf8') as fw:
                 fw.write(h)
                 for line in f:
-                    if line.split(',')[i] == kisy and line.split(',')[j] in typ:
+                    if line.split(',')[i] == kisy :#and line.split(',')[j] in typ:
                         fw.write(line)
 
 

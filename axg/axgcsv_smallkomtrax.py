@@ -1,6 +1,6 @@
 import codecs
 
-inpath = 'G:/axg/csv/'
+inpath = 'G:/axg/csv/PC200/'
 
 def extract(file, exidx):
     with codecs.open(inpath+file, 'r', 'utf8') as f:
@@ -15,6 +15,6 @@ def extract(file, exidx):
                 fw.write(','.join([s[i] for i in idx])+'\n')
 
 if __name__ == '__main__':
-    extract('KOMTRAX_CW_GPS.csv', ['機種', '型', '機番', 'GPS_TIME', 'LATITUDE', 'LONGITUDE'])
-    extract('KOMTRAX_CW_ACT_DATA.csv', ['機種', '型', '機番', 'ACT_DATE', 'ACT_COUNT', 'DAILY_UNIT'])
-    extract('KOMTRAX_CW_SERVICE_METER.csv', ['機種', '型', '機番', 'SMR_TIME', 'SMR_VALUE'])
+    #extract('PC200_KOMTRAX_CW_GPS.csv', ['機種', '型', '機番', 'GPS_TIME', 'LATITUDE', 'LONGITUDE'])
+    extract('PC200_KOMTRAX_CW_ACT_DATA.csv', ['機種', '型', '機番', 'ACT_DATE', 'ACT_COUNT', 'DAILY_UNIT'])
+    extract('PC200_KOMTRAX_CW_SERVICE_METER.csv', ['機種', '型', '機番', 'SMR_TIME', 'SMR_VALUE'])
