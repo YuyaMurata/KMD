@@ -16,5 +16,6 @@ def extract(file, exidx):
 
 if __name__ == '__main__':
     #extract('PC200_KOMTRAX_CW_GPS.csv', ['機種', '型', '機番', 'GPS_TIME', 'LATITUDE', 'LONGITUDE'])
-    extract('PC200_KOMTRAX_CW_ACT_DATA.csv', ['機種', '型', '機番', 'ACT_DATE', 'ACT_COUNT', 'DAILY_UNIT'])
+    #extract('PC200_KOMTRAX_CW_ACT_DATA.csv', ['機種', '型', '機番', 'ACT_DATE', 'ACT_COUNT', 'DAILY_UNIT'])
     extract('PC200_KOMTRAX_CW_SERVICE_METER.csv', ['機種', '型', '機番', 'SMR_TIME', 'SMR_VALUE'])
+    #extract('PC200_KOMTRAX_CW_ERROR.csv', ['機種', '型', '機番', 'ERROR_CODE', 'ERROR_TIME', 'T_TIME', 'COUNT', 'SMR_VALUE'])

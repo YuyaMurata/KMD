@@ -33,16 +33,16 @@ fd = rpath+'EQPデータ/data/utf8/'
 file = rpath+'EQPデータ/layout/filename_eqp_all.csv'
 header = rpath+'EQPデータ/layout/Layout_eqp_all.csv'
 '''
-#KOMTRAX
+'''#KOMTRAX
 fd = rpath+'KOMTRAXデータ/data/utf8/'
 file = rpath+'KOMTRAXデータ/layout/filename_komtrax_all.csv'
 header = rpath+'KOMTRAXデータ/layout/Layout_komtrax_all.csv'
-
-'''#LOADMAP
+'''
+#LOADMAP
 fd = rpath+'LOADMAPデータ/data/utf8/'
 file = rpath+'LOADMAPデータ/layout/filename_loadmap_all.csv'
 header = rpath+'LOADMAPデータ/layout/Layout_loadmap_all.csv'
-'''
+
 destaxg = 'G:/axg/csv/'
 root = os.listdir(fd)
 
@@ -148,13 +148,10 @@ def KOMTRAX():
                     with open(fd+r+'/'+file, 'rb') as data:
                         for d in data:
                             cnt+=1
-                            d = d.replace(',,'.encode(), ', ,'.encode())
-                            d = d.replace(',,'.encode(), ', ,'.encode())
-                            d = d.replace(',\n'.encode(), ', \n'.encode())
                             csv.write(d)
 
             print(f+',-,'+str(fcnt)+','+str(cnt))
 
 if __name__ == '__main__':
-    #KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP_LOADMAP()
-    KOMTRAX()
+    KOMPAS_GCPS_KOSMIC_KUEC_KOWA_EQP_LOADMAP()
+    #KOMTRAX()

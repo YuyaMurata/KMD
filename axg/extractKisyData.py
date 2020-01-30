@@ -22,7 +22,7 @@ def extract():
             continue
 
         #処理ファイルの限定
-        if 'KOMTRAX_' not in file:
+        if 'LOADMAP' not in file:
             continue
 
         print(file)
