@@ -2,10 +2,12 @@ import os
 import codecs
 import linecache
 import shutil
+import zipfile
 
-inpath = 'G:/axg/csv/'
+#inpath = 'G:/axg/csv/'
+inpath = 'G:/取得データ_20200304/KOMTRAXデータ/銭さん/ACT/'
 kisy = 'PC200'
-typ = ['8', '8N1', '10']
+typ = [b'8', b'8N1', b'10']
 
 def extract():
     root = os.listdir(inpath)
@@ -45,7 +47,21 @@ def extract():
                     if line.split(',')[i] == kisy :#and line.split(',')[j] in typ:
                         fw.write(line)
 
-
+def extractZip():
+    root = os.listdir(inpath)
+    for file in root:
+        with zipfile.ZipFile(inpath+file, 'r') as zf:
+            for zfile in zf.namelist():
+                with zf.open(zfile) as f:
+                    with codecs.open(inpath+'CW_ACT_PC200.csv', 'ab') as fw:
+                        h = f.readline().split(b'|')
+                        fw.write(b','.join(h))
+                        for line in f:
+                            s = line.split(b'|')
+                            if kisy.encode() == s[h.index(b'KIND')]:
+                                if s[h.index(b'TYPE')] in typ:
+                                    fw.write(line.replace(b'|', b','))
 
 if __name__ == '__main__':
-    extract()
+    #extract()
+    extractZip()
